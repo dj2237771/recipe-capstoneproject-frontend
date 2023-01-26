@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.dropdown-menu label {
+  display: block;
+}
+#multiselectContainerReact {
+  max-width: 40vh;
+}
+
+.form-control {
+  max-width: 60vh;
+}
+.form-select {
+  max-width: 40vh;
+}
