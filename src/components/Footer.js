@@ -3,9 +3,9 @@ import React from "react";
 
 function Footer() {
   return (
-    <Navbar bg="dark">
+    <nav className="footer">
       <Navbar.Brand>&copy; All rights reserved</Navbar.Brand>
-    </Navbar>
+    </nav>
   );
 }
 export default Footer;

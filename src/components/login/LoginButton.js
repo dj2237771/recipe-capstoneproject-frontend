@@ -6,7 +6,7 @@ const LoginButton = () => {
 
   return (
     !isAuthenticated && (
-      <button
+      <a
         to="/"
         style={{
           display: "flex",
@@ -16,7 +16,7 @@ const LoginButton = () => {
         onClick={() => loginWithRedirect()}
       >
         Log In
-      </button>
+      </a>
     )
   );
 };

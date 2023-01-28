@@ -3,6 +3,7 @@ import axios from "axios";
 import FavItem from "./FavItem";
 import UpdateRecipeModal from "./UpdateRecipeModal";
 import React from "react";
+import Header from "./Header";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function MyFavorites() {
@@ -16,10 +17,11 @@ function MyFavorites() {
 
   useEffect(() => {
     const getFavRecipe = async () => {
-      let username = user.email || user.nickname || "dj2237771";
-      console.log(username);
+      let userName = user.email || user.nickname;
+      console.log(userName);
+
       let resultRecipe = await axios.get(
-        `${serverLink}/favrecipe?username=${username}`
+        `${serverLink}/favrecipe?userName=${userName}`
       );
       console.log("favrecipe", resultRecipe.data);
       setResults(resultRecipe.data);
@@ -29,6 +31,7 @@ function MyFavorites() {
   }, []);
 
   const deleteRecipe = async (index) => {
+    console.log(index.value);
     let resultsRecipe = await axios.delete(`${serverLink}/favrecipe/${index}`);
     setResults(resultsRecipe.data);
     // setShowItems(true);
@@ -50,7 +53,9 @@ function MyFavorites() {
 
   return (
     <div>
-      <h1>Your Favorites Digimon</h1>
+      <Header />
+
+      <h1>Your Favorites Recipe</h1>
       <div
         style={{
           display: "flex",
@@ -69,14 +74,15 @@ function MyFavorites() {
             />
           ))}
       </div>
-
-      <UpdateRecipeModal
-        show={showUpdateModalStatus}
-        handleClose={handleCloseUpdate}
-        itemInfo={itemInfo}
-        itemIndex={index}
-        updateRecipes={updateRecipes}
-      />
+      <div className="up-de-button">
+        <UpdateRecipeModal
+          show={showUpdateModalStatus}
+          handleClose={handleCloseUpdate}
+          itemInfo={itemInfo}
+          itemIndex={index}
+          updateRecipes={updateRecipes}
+        />
+      </div>
     </div>
   );
 }

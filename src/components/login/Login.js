@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import LoginButton from "./LoginButton";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 function Login() {
   return (
     <Card style={{ width: "18rem" }}>

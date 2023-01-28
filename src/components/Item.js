@@ -12,7 +12,6 @@ function Item(props) {
 
   const addToFav = async (recipe) => {
     recipe["userName"] = user.email || user.nickname;
-
     await axios.post(`${serverLink}/favrecipe`, recipe);
   };
 
@@ -23,7 +22,7 @@ function Item(props) {
         <Card.Title>{props.item.label}</Card.Title>
         <Card.Text>{props.item.calories}</Card.Text>
         <Card.Text>{props.item.ingredientLines}</Card.Text>
-        <Card.Text>{props.item.url}</Card.Text>
+
         {isAuthenticated && (
           <Button
             variant="primary"

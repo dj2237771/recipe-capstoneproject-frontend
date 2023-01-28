@@ -21,7 +21,7 @@ function FavItem(props) {
         </Button>
         <Button
           variant="primary"
-          onClick={() => props.deleteMakeup(props.item._id)}
+          onClick={() => props.deleteRecipe(props.item._id)}
         >
           Delete
         </Button>

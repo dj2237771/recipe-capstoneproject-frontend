@@ -19,10 +19,11 @@ function UpdateRecipeModal(props) {
       mealType: e.target.mealType.value,
       dishType: e.target.dishType.value,
       ingredientLines: e.target.ingredientLines.value,
-      image: e.target.image.value,
     };
+    console.log(itemData);
+
     const resultsUpdate = await axios.put(
-      `${serverLink}/product/${props.itemIndex}`,
+      `${serverLink}/favrecipe/${props.itemIndex}`,
       itemData
     );
     props.handleClose();
@@ -52,10 +53,10 @@ function UpdateRecipeModal(props) {
             />
           </Form.Group>
           <Form.Group controlId="dietLabels">
-            <Form.Label>Price</Form.Label>
+            <Form.Label>diet Labels</Form.Label>
             <Form.Control
               defaultValue={props.itemInfo.dietLabels}
-              type="number"
+              type="text"
               name="price"
             />
           </Form.Group>
@@ -99,21 +100,14 @@ function UpdateRecipeModal(props) {
               name="disruption"
             />
           </Form.Group>
-          <Form.Group controlId="image">
-            <Form.Label>Image</Form.Label>
-            <Form.Control
-              defaultValue={props.itemInfo.image}
-              type="text"
-              name="disruption"
-            />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Update Item
-          </Button>
-          <Button variant="secondary" onClick={props.handleClose}>
-            Close
-          </Button>
+          <div>
+            <Button variant="primary" type="submit">
+              Update Item
+            </Button>
+            <Button variant="secondary" onClick={props.handleClose}>
+              Close
+            </Button>
+          </div>
         </Form>
       </Modal.Body>
       <Modal.Footer></Modal.Footer>
